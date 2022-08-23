@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import "./App.css";
+
+//toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Pages from "./pages/Pages";
+
+import { RecipeProvider } from "./contexts/recipe/RecipeContext";
+import { ThemeProvider } from "./contexts/theme/ThemeContext";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <RecipeProvider>
+        <ThemeProvider>
+          <ToastContainer position="bottom-center" />
+          <Pages />
+        </ThemeProvider>
+      </RecipeProvider>
     </div>
   );
-}
+};
 
 export default App;
